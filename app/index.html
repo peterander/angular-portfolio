@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app="portfolioApp">
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">PeterAnderson</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Portfolio <span class="glyphicon glyphicon-folder-open"></span></h1>
+        <p>Explore my work.</p>
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation"><a href="#" ng-click="artContent = !artContent"><span class="glyphicon glyphicon-picture"></span> Art</a></li>
+          <li role="presentation"><a href="#" ng-click="travelsContent = !travelsContent"><span class="glyphicon glyphicon-plane"></span> Travels</a></li>
+          <li role="presentation"><a href="#" ng-click="riffsContent = !riffsContent"><span class="glyphicon glyphicon-play"></span> Riffs</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content area displaying portfolio item content -->
+    <div class="container" ng-controller="ArtCtrl" ng-show="artContent">
+	  	<div class="row">
+	      <div class="col-xs-6 col-md-3" ng-repeat="art in art">
+	        <a href="#" class="thumbnail">
+	          <img ng-src="{{art.url}}" alt="...">
+	        </a>
+	      </div>     
+	    </div>
+    </div> <!-- /container -->
+
+    <div class="container" ng-controller="TravelsCtrl" ng-show="travelsContent">
+		<div class="media" ng-repeat="travel in travels">
+	    	<span class="pull-left glyphicon glyphicon-globe"></span>
+	        <div class="media-body">
+	          <h4 class="media-heading">{{travel.name}}</h4>
+	          {{travel.description}}
+			</div>
+		</div>
+	</div> <!-- /container -->
+    
+
+    <div class="container" ng-controller="RiffsCtrl" ng-show="riffsContent">
+     <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Riff Library</div>
+
+        <!-- Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Riff Name</th>
+              <th>Instrument</th>
+              <th>Length</th>
+              <th><span class="glyphicon glyphicon-headphones"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="riff in riffs">
+              <td>{{riff.number}}</td>
+              <td>{{riff.title}}</td>
+              <td>{{riff.instrument}}</td>
+              <td>{{riff.duration}}</td>
+              <td><span class="glyphicon glyphicon-play"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- /container -->
+
+</body>
+</html>

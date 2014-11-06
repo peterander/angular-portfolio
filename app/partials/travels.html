@@ -1,0 +1,9 @@
+<div class="container" ng-controller="TravelsCtrl">
+	<div class="media" ng-repeat="travel in travels">
+    	<span class="pull-left glyphicon glyphicon-globe"></span>
+        <div class="media-body">
+          <h4 class="media-heading">{{travel.name}}</h4>
+          {{travel.description}}
+		</div>
+	</div>
+</div> <!-- /container -->
