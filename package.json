@@ -3,7 +3,7 @@
   "private": true,
   "name": "angular-portfolio",
   "description": "A personal portfolio app based on angular seed project",
-  "repository": "",
+  "repository": "https://github.com/peterander/angular-portfolio",
   "license": "MIT",
   "devDependencies": {
     "karma": "^0.12.16",
