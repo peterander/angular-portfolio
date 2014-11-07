@@ -1,0 +1,28 @@
+    <div class="container" ng-controller="RiffsCtrl" ng-show="riffsContent">
+     <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Riff Library</div>
+
+        <!-- Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Riff Name</th>
+              <th>Instrument</th>
+              <th>Length</th>
+              <th><span class="glyphicon glyphicon-headphones"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="riff in riffs">
+              <td>{{riff.number}}</td>
+              <td>{{riff.title}}</td>
+              <td>{{riff.instrument}}</td>
+              <td>{{riff.duration}}</td>
+              <td><span class="glyphicon glyphicon-play"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- /container -->

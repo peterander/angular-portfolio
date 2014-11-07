@@ -37,55 +37,12 @@
     </div>
 
     <!-- Main content area displaying portfolio item content -->
-    <div class="container" ng-controller="ArtCtrl" ng-show="artContent">
-	  	<div class="row">
-	      <div class="col-xs-6 col-md-3" ng-repeat="art in art">
-	        <a href="#" class="thumbnail">
-	          <img ng-src="{{art.url}}" alt="...">
-	        </a>
-	      </div>     
-	    </div>
-    </div> <!-- /container -->
 
-    <div class="container" ng-controller="TravelsCtrl" ng-show="travelsContent">
-		<div class="media" ng-repeat="travel in travels">
-	    	<span class="pull-left glyphicon glyphicon-globe"></span>
-	        <div class="media-body">
-	          <h4 class="media-heading">{{travel.name}}</h4>
-	          {{travel.description}}
-			</div>
-		</div>
-	</div> <!-- /container -->
-    
+    <div ng-include="'partials/art.html'"></div>
 
-    <div class="container" ng-controller="RiffsCtrl" ng-show="riffsContent">
-     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Riff Library</div>
-
-        <!-- Table -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Riff Name</th>
-              <th>Instrument</th>
-              <th>Length</th>
-              <th><span class="glyphicon glyphicon-headphones"></span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="riff in riffs">
-              <td>{{riff.number}}</td>
-              <td>{{riff.title}}</td>
-              <td>{{riff.instrument}}</td>
-              <td>{{riff.duration}}</td>
-              <td><span class="glyphicon glyphicon-play"></span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> <!-- /container -->
+    <div ng-include="'partials/travels.html'"></div>
+      
+    <div ng-include="'partials/riffs.html'"></div>
 
 </body>
 </html>
