@@ -1,6 +1,8 @@
-<div class="container" ng-controller="TravelsCtrl" ng-show="travelsContent">
+<div ng-controller="TravelsCtrl">
 	<div class="media" ng-repeat="travel in travels">
-    	<span class="pull-left glyphicon glyphicon-globe"></span>
+    	<a href="#" class="media-left">
+    		<img ng-src="{{travel.imgUrl}}" alt="travel">
+    	</a>
         <div class="media-body">
           <h4 class="media-heading">{{travel.name}}</h4>
           {{travel.description}}

@@ -6,10 +6,14 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <!-- navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -29,20 +33,18 @@
         <h1>Portfolio <span class="glyphicon glyphicon-folder-open"></span></h1>
         <p>Explore my work.</p>
         <ul class="nav nav-pills" role="tablist">
-          <li role="presentation"><a href="#" ng-click="artContent = !artContent"><span class="glyphicon glyphicon-picture"></span> Art</a></li>
-          <li role="presentation"><a href="#" ng-click="travelsContent = !travelsContent"><span class="glyphicon glyphicon-plane"></span> Travels</a></li>
-          <li role="presentation"><a href="#" ng-click="riffsContent = !riffsContent"><span class="glyphicon glyphicon-play"></span> Riffs</a></li>
+          <li ui-sref-active="active" role="presentation"><a ui-sref="art"><span class="glyphicon glyphicon-picture"></span> Art</a></li>
+          <li ui-sref-active="active" role="presentation"><a ui-sref="travels"><span class="glyphicon glyphicon-plane"></span> Travels</a></li>
+          <li ui-sref-active="active" role="presentation"><a ui-sref="riffs"><span class="glyphicon glyphicon-play"></span> Riffs</a></li>
+          <li ui-sref-active="active" role="presentation"><a ui-sref="state1"><span class="glyphicon glyphicon-tree-conifer"></span> State 1</a></li>
+          <li ui-sref-active="active" role="presentation"><a ui-sref="state2"><span class="glyphicon glyphicon-tree-deciduous"></span> State 2</a></li>
         </ul>
       </div>
     </div>
 
     <!-- Main content area displaying portfolio item content -->
 
-    <div ng-include="'partials/art.html'"></div>
-
-    <div ng-include="'partials/travels.html'"></div>
-      
-    <div ng-include="'partials/riffs.html'"></div>
+    <div class="container" ui-view></div>
 
 </body>
 </html>
