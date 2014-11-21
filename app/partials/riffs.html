@@ -7,6 +7,8 @@
         <table class="table">
           <thead>
             <tr>
+              <th></th>
+              <th>Rank</th>
               <th>#</th>
               <th>Riff Name</th>
               <th>Instrument</th>
@@ -15,7 +17,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="riff in riffs">
+            <tr ng-repeat="riff in riffs | orderBy:predicate:reverse">
+              <td><a ng-click="upVote(riff)">[+]</a><a ng-click="downVote(riff)">[-]</a></td>
+              <td>{{riff.rank}}</td>
               <td>{{riff.number}}</td>
               <td>{{riff.title}}</td>
               <td>{{riff.instrument}}</td>

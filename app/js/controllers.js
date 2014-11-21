@@ -6,19 +6,7 @@ portfolioApp.controller('ArtCtrl', ['$scope', 'ArtService', '$http',
 	function($scope, ArtService, $http) {
 		$http.get('art/art.json').success(function(data) {
 			$scope.art = data;		
-	});
-	// $scope.art = ArtService.get();
-}]);
-
-portfolioApp.factory('ArtService', ['$http',
-	function($http){
-		return {
-			get: function(){
-				$http.get('art/art.json').success(function(data) {
-					return data;		
-				});
-			}
-		};
+		});
 }]);
 
 portfolioApp.controller('TravelsCtrl', function($scope) {
@@ -45,36 +33,55 @@ portfolioApp.controller('TravelsCtrl', function($scope) {
 });
 
 portfolioApp.controller('RiffsCtrl', function($scope) {
+	$scope.upVote = function(riff){
+		if(!riff.rank){
+			riff.rank=0;
+		}
+		riff.rank++;
+	};
+	$scope.downVote = function(riff){
+		if(!riff.rank){
+			riff.rank=0;
+		}
+		riff.rank--;
+	};
+	$scope.predicate = "-rank";
 	$scope.riffs = [
 		{'number': '1',
 		 'title': 'Wildwood Flower',
 		 'instrument': 'Banjo',
 		 'duration': '00:33',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 		{'number': '2',
 		 'title': 'Picking',
 		 'instrument': '12-string',
 		 'duration': '00:27',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 		{'number': '3',
 		 'title': 'Bendy',
 		 'instrument': 'Telecaster',
 		 'duration': '00:45',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 		{'number': '4',
 		 'title': 'Clawhammer',
 		 'instrument': 'Banjo',
 		 'duration': '00:38',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 		{'number': '5',
 		 'title': 'Open',
 		 'instrument': '12-string',
 		 'duration': '00:32',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 		{'number': '6',
 		 'title': 'Hammer-on',
 		 'instrument': 'Telecaster',
 		 'duration': '00:19',
-		 'url': ''},
+		 'url': '',
+		 'rank': 0},
 	];
 });
