@@ -1,32 +1,41 @@
     <div ng-controller="RiffsCtrl">
-     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Riff Library</div>
+    	<div class="row">
+    		<div class="col-md-4">
+			    <div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					</span>
+					<input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+				</div><!-- /.input-group -->
+			</div><!-- /.col-md-4 -->
+		</div><!-- /.row -->	
 
-        <!-- Table -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Rank</th>
-              <th>#</th>
-              <th>Riff Name</th>
-              <th>Instrument</th>
-              <th>Length</th>
-              <th><span class="glyphicon glyphicon-headphones"></span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="riff in riffs | orderBy:predicate:reverse">
-              <td><a ng-click="upVote(riff)">[+]</a><a ng-click="downVote(riff)">[-]</a></td>
-              <td>{{riff.rank}}</td>
-              <td>{{riff.number}}</td>
-              <td>{{riff.title}}</td>
-              <td>{{riff.instrument}}</td>
-              <td>{{riff.duration}}</td>
-              <td><span class="glyphicon glyphicon-play"></span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+		<br />
+
+	    <div class="panel panel-default">
+	        <!-- Table -->
+	        <table class="table">
+	          <thead>
+	            <tr>
+	              <th><span class="glyphicon glyphicon-headphones"></span></th>
+	              <th>Riff Name</th>
+	              <th>Instrument</th>
+	              <th>Length</th>
+	              <th>Rank</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr ng-repeat="riff in riffs | orderBy:predicate:reverse | filter:searchText">
+	              <td><span class="glyphicon glyphicon-play"></span></td>
+	              <td>{{riff.title}}</td>
+	              <td>{{riff.instrument}}</td>
+	              <td>{{riff.duration}}</td>
+	              <td>
+	              	<span class="badge">{{riff.rank}}</span>
+	              	<sup><span ng-click="upVote(riff)" class="glyphicon glyphicon-plus" aria-hidden="true"></span></sup>
+	              </td>
+	            </tr>
+	          </tbody>
+	        </table>
+	    </div>
     </div> <!-- /container -->

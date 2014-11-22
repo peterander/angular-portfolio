@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-portfolioApp.controller('ArtCtrl', ['$scope', 'ArtService', '$http',
-	function($scope, ArtService, $http) {
+portfolioApp.controller('ArtCtrl', ['$scope', '$http',
+	function($scope, $http) {
 		$http.get('art/art.json').success(function(data) {
 			$scope.art = data;		
 		});
@@ -51,37 +51,37 @@ portfolioApp.controller('RiffsCtrl', function($scope) {
 		 'title': 'Wildwood Flower',
 		 'instrument': 'Banjo',
 		 'duration': '00:33',
-		 'url': '',
+		 'url': 'camera-shutter-click-06.mp3',
 		 'rank': 0},
 		{'number': '2',
 		 'title': 'Picking',
 		 'instrument': '12-string',
 		 'duration': '00:27',
-		 'url': '',
+		 'url': 'electric-drill-1.mp3',
 		 'rank': 0},
 		{'number': '3',
 		 'title': 'Bendy',
 		 'instrument': 'Telecaster',
 		 'duration': '00:45',
-		 'url': '',
+		 'url': 'electric-drill-2.mp3',
 		 'rank': 0},
 		{'number': '4',
 		 'title': 'Clawhammer',
 		 'instrument': 'Banjo',
 		 'duration': '00:38',
-		 'url': '',
+		 'url': 'freezer-hum-1.mp3',
 		 'rank': 0},
 		{'number': '5',
 		 'title': 'Open',
 		 'instrument': '12-string',
 		 'duration': '00:32',
-		 'url': '',
+		 'url': 'grass-trimmer-1.mp3',
 		 'rank': 0},
 		{'number': '6',
 		 'title': 'Hammer-on',
 		 'instrument': 'Telecaster',
 		 'duration': '00:19',
-		 'url': '',
+		 'url': 'hammering-2.mp3',
 		 'rank': 0},
 	];
 });
