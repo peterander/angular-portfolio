@@ -1,4 +1,6 @@
     <div ng-controller="RiffsCtrl">
+
+    	<!-- Search -->
     	<div class="row">
     		<div class="col-md-4">
 			    <div class="input-group">
@@ -14,7 +16,7 @@
 
 	    <div class="panel panel-default">
 	        <!-- Table -->
-	        <table class="table">
+	        <table class="table table-striped">
 	          <thead>
 	            <tr>
 	              <th><span class="glyphicon glyphicon-headphones"></span></th>
@@ -26,7 +28,10 @@
 	          </thead>
 	          <tbody>
 	            <tr ng-repeat="riff in riffs | orderBy:predicate:reverse | filter:searchText">
-	              <td><span class="glyphicon glyphicon-play"></span></td>
+	              <td>
+	              	<span class="glyphicon glyphicon-play" ng-click="playRiff(riff)" ng-hide="riff.isPlaying"></span>
+	              	<span class="glyphicon glyphicon-pause" ng-click="pauseRiff(riff)" ng-show="riff.isPlaying"></span>
+	              </td>
 	              <td>{{riff.title}}</td>
 	              <td>{{riff.instrument}}</td>
 	              <td>{{riff.duration}}</td>
@@ -38,4 +43,4 @@
 	          </tbody>
 	        </table>
 	    </div>
-    </div> <!-- /container -->
+    </div>
