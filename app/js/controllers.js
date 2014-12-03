@@ -5,7 +5,7 @@
 portfolioApp.controller('ArtCtrl', ['$scope', '$http',
 	function($scope, $http) {
 		$http.get('art/art.json').success(function(data) {
-			$scope.art = data;
+			$scope.art = data;		
 		});
 }]);
 
